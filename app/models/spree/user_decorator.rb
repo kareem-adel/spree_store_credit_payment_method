@@ -15,4 +15,4 @@ module SpreeStoreCredits::UserDecorator
   end
 end
 
-Spree::User.include SpreeStoreCredits::UserDecorator
+Spree.user_class.include SpreeStoreCredits::UserDecorator
