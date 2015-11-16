@@ -11,7 +11,7 @@ module SpreeStoreCredits::CheckoutControllerDecorator
     private
 
     def add_store_credit_payments
-      if params.has_key?(:apply_store_credit)
+      if params['apply_store_credit'].to_i == 1
         @order.add_store_credit_payments
 
         # Remove other payment method parameters.
