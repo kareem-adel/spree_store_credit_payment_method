@@ -29,4 +29,6 @@ Spree::Core::Engine.routes.draw do
       end
     end
   end
+
+  post '/checkout/redeem', to: 'checkout#redeem'
 end

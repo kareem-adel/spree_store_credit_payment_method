@@ -43,6 +43,15 @@ en:
       unable_to_find_for_action: "Could not find store credit for auth code: %{auth_code} for action: %{action}"
       user_has_no_store_credits: "User does not have any available store credit"
       select_one_store_credit: "Select store credit to go towards remaining balance"
+    gift_cards:
+      gift_card: "Gift Card"
+      redeem: "Redeem"
+      redeem_gift_card: "Redeem Gift Card"
+      redemption_code: "Redemption Code"
+      errors:
+        not_found: "Gift card was not found"
+        please_try_again: "Please try again"
+        unable_to_redeem_gift_card: "Unable to redeem gift card"
     admin:
       user:
         store_credit: "Store Credit"
