@@ -12,11 +12,12 @@
 <% if @store_credits.any? %>
   <table class="table">
     <thead>
-      <th><%= Spree.t("credited") %></th>
-      <th><%= Spree.t("used") %></th>
-      <th><%= Spree.t("type") %></th>
-      <th><%= Spree.t("created_by") %></th>
-      <th><%= Spree.t("issued_on") %></th>
+      <th><%= Spree.t("store_credit.credit") %></th>
+      <th><%= Spree.t("store_credit.captured") %></th>
+      <th><%= Spree.t("store_credit.authorized") %></th>
+      <th><%= Spree.t("store_credit.type") %></th>
+      <th><%= Spree.t("admin.store_credits.created_by") %></th>
+      <th><%= Spree.t("admin.store_credits..issued_on") %></th>
       <th data-hook="admin_store_credits_index_header_actions" class="actions"></th>
     <thead>
     <tbody>
@@ -24,6 +25,7 @@
         <tr>
           <td><%= store_credit.display_amount.to_html %></td>
           <td><%= store_credit.display_amount_used.to_html %></td>
+          <td><%= store_credit.display_amount_authorized.to_html %></td>
           <td><%= store_credit.category_name %></td>
           <td><%= store_credit.created_by_email %></td>
           <td><%= l store_credit.created_at.to_date %></td>

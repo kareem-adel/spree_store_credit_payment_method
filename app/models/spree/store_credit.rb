@@ -45,6 +45,10 @@ module Spree
       Spree::Money.new(amount_used)
     end
 
+    def display_amount_authorized
+      Spree::Money.new(amount_authorized)
+    end
+
     def amount_remaining
       amount - amount_used - amount_authorized
     end

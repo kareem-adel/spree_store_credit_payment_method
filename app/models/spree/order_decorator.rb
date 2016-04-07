@@ -72,5 +72,3 @@ module SpreeStoreCredits::OrderDecorator
 
   end
 end
-
-Spree::Order.include SpreeStoreCredits::OrderDecorator

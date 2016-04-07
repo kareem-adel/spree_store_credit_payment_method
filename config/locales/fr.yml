@@ -1,0 +1,88 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+  activerecord:
+    attributes:
+      spree/store_credit:
+        amount_used: "Montant utilisé"
+  spree:
+    memo: "Mémo"
+    select_a_store_credit_reason: Sélectionner une raison pour le crédit
+    store_credit:
+      credit: "Montant crédité"
+      authorized: "Montant autorisé"
+      captured: "Montant utilisé"
+      allocated: "Alloué"
+      apply: Appliquer les crédits
+      applicable_amount: "%{amount} en carte-cadeau sera appliqué à cettecommande."
+      available_amount: "Vous avez %{amount} disponible sur les cartes-cadeaux!"
+      remaining_amount: "Le solde de vos cartes-cadeaux est de %{amount}"
+      additional_payment_needed: Choisissez une méthode de paiement pour acquitter le reste du solde %{amount}.
+      errors:
+        cannot_change_used_store_credit: Vous ne pouvez pas modifier un crédit déja utilisé
+        unable_to_create: Impossible d'ajouter le crédit
+        unable_to_delete: Impossible d'effacer le crédit
+        unable_to_fund: Impossible de payer avec ce crédit
+        unable_to_update: Impossible de mettre le crédit à jour
+    store_credit_categories: Catégories de crédit
+    store_credit_payment_method:
+      unable_to_void: "Impossible d'annuler le code suivant: %{auth_code}"
+      unable_to_credit: "Impossible d'utiliser le code suivant: %{auth_code}"
+      successful_action: "L'action suivante s'est terminée avec succès : %{action}"
+      unable_to_find: "Crédit introuvable"
+      insufficient_funds: "Le montant disponible est insuffisant"
+      currency_mismatch: "La dénomination ne concorde pas"
+      insufficient_authorized_amount: "Impossible d'utiliser un crédit plus grand que celui autorisé"
+      unable_to_find_for_action: "Impossible de trouver le crédit associé à ce code: %{auth_code} pour l'action: %{action}"
+      user_has_no_store_credits: "L'utilisateur n'a pas de crédit"
+      select_one_store_credit: "Sélectionner une carte à utiliser"
+    gift_cards:
+      gift_card: "Carte-cadeau"
+      redeem: "Réclamer"
+      redeem_gift_card: "Réclamer votre carte-cadeau"
+      redemption_code: "Code d'autorisation"
+      errors:
+        not_found: "Carte-cadeau introuvable"
+        please_try_again: "Veuillez réessayer"
+        unable_to_redeem_gift_card: "Impossible de réclamer la carte"
+    admin:
+      user:
+        store_credit: "Crédit en magasin"
+      gift_cards:
+        gift_card: "Carte-cadeau"
+        redeem: "Réclamer"
+        redeem_gift_card: "Réclamer la carte-cadeau"
+        redeemed_gift_card: "Carte-cadeau réclamée:"
+        redemption_code: "Code d'autorisation"
+        errors:
+          not_found: "Carte-cadeau introuvable"
+          please_try_again: "Veuillez réessayer"
+          unable_to_redeem_gift_card: "Impossible de réclamer la carte"
+      store_credits:
+        add: Ajouter un crédit
+        new: Nouveau crédit
+        edit: Modifier un crédit
+        back_to_store_credit_list: "Retourner a la liste des crédits"
+        credited_html_header: "Amount<br/>Credited"
+        used_html_header: "Amount<br/>Used"
+        type_html_header: "Credit<br/>Type"
+        created_by: "Ajouté par"
+        issued_on: "Ajouté le "
+        select_reason: "Choississez un type de crédit"
+        unable_to_create: Impossible d'ajouter le crédit
+        unable_to_delete: Impossible d'effacer le crédit
+        unable_to_update: Impossible de mettre le crédit à jour
+        resource_name: "Crédits en magasin"
+        no_store_credit_selected: "Aucun crédit n'a été sélectionner"
+        errors:
+          cannot_change_used_store_credit: "Store credit that has been claimed cannot be changed"
+          amount_used_cannot_be_greater: "cannot be greater than the credited amount (Amount Used: %{amount_used}, Amount: %{amount})"
+          amount_authorized_exceeds_total_credit: " exceeds the available credit (Amount Used: %{amount_used}, Amount Authorized: %{amount_authorized}, Amount: %{amount})"
+          amount_used_not_zero: "is greater than zero. Can not delete store credit"
+    gift_card_mailer:
+      gift_card_email:
+        dear_customer: "Dear customer"
+        your_gift_card_code: "Here is your gift card code"
+        gift_card_code: "Gift card code: %{code}"
+        subject: "Your gift card code"
