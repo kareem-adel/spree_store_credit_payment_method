@@ -6,7 +6,8 @@ module Spree
       def add_store_credit_payments
         payments.store_credits.where(state: 'checkout').map(&:invalidate!)
 
-        remaining_total = outstanding_balance
+        authorized_total = payments.pending.sum(:amount)
+        remaining_total = outstanding_balance - authorized_total
 
         if user && user.store_credits.any?
           payment_method = Spree::PaymentMethod.find_by_type('Spree::PaymentMethod::StoreCredit')
@@ -21,6 +22,21 @@ module Spree
             remaining_total -= amount_to_take
           end
         end
+
+        other_payments = payments.checkout.not_store_credits
+
+        if remaining_total.zero?
+          other_payments.each(&:invalidate!)
+        elsif other_payments.size == 1
+          other_payments.first.update_attributes!(amount: remaining_total)
+        end
+
+        payments.reset
+
+        if payments.where(state: %w(checkout pending)).sum(:amount) != total
+          errors.add(:base, Spree.t("store_credit.errors.unable_to_fund")) and return false
+        end
+
       end
 
       def covered_by_store_credit?

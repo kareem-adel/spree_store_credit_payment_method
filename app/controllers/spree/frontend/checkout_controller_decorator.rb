@@ -24,12 +24,15 @@ module SpreeStoreCredits::CheckoutControllerDecorator
     private
 
     def add_store_credit_payments
-      if params['apply_store_credit'].to_i == 1
+    if params['apply_store_credit'].to_i == 1
         @order.add_store_credit_payments
 
-        # Remove other payment method parameters.
-        params[:order].delete(:payments_attributes)
-        params.delete(:payment_source)
+
+        if @order.order_total_after_store_credit == 0
+          # Remove other payment method parameters.
+          params[:order].delete(:payments_attributes)
+          params.delete(:payment_source)
+        end
 
         # Return to the Payments page if additional payment is needed.
         if @order.payments.valid.sum(:amount) < @order.total
@@ -40,7 +43,7 @@ module SpreeStoreCredits::CheckoutControllerDecorator
 
     def redeem_fail_response
       {
-        error_message: "#{Spree.t('gift_cards.errors.not_found')}. #{Spree.t('gift_cards.errors.please_try_again')}"
+          error_message: "#{Spree.t('gift_cards.errors.not_found')}. #{Spree.t('gift_cards.errors.please_try_again')}"
       }
     end
 
