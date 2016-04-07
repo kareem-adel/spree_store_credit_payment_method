@@ -51,24 +51,25 @@ module SpreeStoreCredits::OrderDecorator
     end
 
     # Override Spree::Core to use the remaining total
-    def update_params_payment_source
-      if @updating_params[:payment_source].present?
-        source_params = @updating_params.
-                        delete(:payment_source)[@updating_params[:order][:payments_attributes].
-                                                first[:payment_method_id].to_s]
-
-        if source_params
-          @updating_params[:order][:payments_attributes].first[:source_attributes] = source_params
-        end
-      end
-
-      if @updating_params[:order] && (@updating_params[:order][:payments_attributes] ||
-                                      @updating_params[:order][:existing_card])
-        @updating_params[:order][:payments_attributes] ||= [{}]
-        # @updating_params[:order][:payments_attributes].first[:amount] = total
-        @updating_params[:order][:payments_attributes].first[:amount] = order_total_after_store_credit
-      end
-    end
+    # def update_params_payment_source
+    #
+    #   if @updating_params[:payment_source].present?
+    #     source_params = @updating_params.
+    #                     delete(:payment_source)[@updating_params[:order][:payments_attributes].
+    #                                             first[:payment_method_id].to_s]
+    #
+    #     if source_params
+    #       @updating_params[:order][:payments_attributes].first[:source_attributes] = source_params
+    #     end
+    #   end
+    #
+    #   if @updating_params[:order] && (@updating_params[:order][:payments_attributes] ||
+    #                                   @updating_params[:order][:existing_card])
+    #     @updating_params[:order][:payments_attributes] ||= [{}]
+    #     # @updating_params[:order][:payments_attributes].first[:amount] = total
+    #     @updating_params[:order][:payments_attributes].first[:amount] = order_total_after_store_credit
+    #   end
+    # end
 
   end
 end

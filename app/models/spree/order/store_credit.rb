@@ -4,6 +4,8 @@ module Spree
   class Order < Spree::Base
     module StoreCredit
       def add_store_credit_payments
+
+
         payments.store_credits.where(state: 'checkout').map(&:invalidate!)
 
         authorized_total = payments.pending.sum(:amount)
@@ -43,6 +45,7 @@ module Spree
         return false unless user
         user.total_available_store_credit >= total
       end
+
       alias_method :covered_by_store_credit, :covered_by_store_credit?
 
       def total_available_store_credit
