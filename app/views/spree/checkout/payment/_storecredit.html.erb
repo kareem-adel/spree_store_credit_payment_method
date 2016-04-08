@@ -27,7 +27,6 @@
 
 
 <script>
-  Spree.scPaymentMethod = $('#payment_method_');
   Spree.redeemGiftCard = function() {
     var redemption_code = $("#redemption_code").val().trim();
     var data = {'redemption_code': redemption_code};
@@ -47,7 +46,7 @@
         }
       },
       error: function (data) {
-        console.log(data);
+        data = $.parseJSON(data.responseText);
         Spree.handleMessage('error', data.error_message);
       }
     });
@@ -55,12 +54,14 @@
 
   Spree.handleMessage = function(status, message) {
     var selector = $('.message');
+      console.log(message);
     selector.attr('style', '').html('');
     if (status == 'success') {
-      selector.attr('style', 'color:red;');
-    } else if (status == 'error') {
       selector.attr('style', 'color:green;');
+    } else if (status == 'error') {
+      selector.attr('style', 'color:red;');
     }
+
     selector.html(message).show().fadeOut(1000);
   };
 
