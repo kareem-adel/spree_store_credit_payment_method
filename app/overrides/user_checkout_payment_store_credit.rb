@@ -3,7 +3,7 @@
 Deface::Override.new(
   virtual_path: 'spree/checkout/_payment',
   name: 'insert_store_credit_instructions',
-  insert_before: '#payment-method-fields',
+  insert_after: '#payment-methods',
   partial: 'spree/checkout/payment/storecredit',
-  disabled: true
+  disabled: false
 )
