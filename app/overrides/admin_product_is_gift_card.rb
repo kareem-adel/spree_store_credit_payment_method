@@ -1,7 +1,7 @@
 Deface::Override.new(
   virtual_path:  'spree/admin/products/_form',
   name:          'gift_card',
-  insert_after:  '[data-hook="edit_is_active"]',
+  insert_after:  '[data-hook="admin_product_form_promotionable"]',
   partial:       'spree/admin/products/edit_gift_card.html.erb'
 )
 
