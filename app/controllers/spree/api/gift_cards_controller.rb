@@ -7,7 +7,7 @@ class Spree::Api::GiftCardsController < Spree::Api::BaseController
     if !@gift_card
       render status: :not_found, json: redeem_fail_response
     elsif @gift_card.redeem(@current_api_user)
-      render status: :created, json: {}
+      render json: {:amount => @gift_card.amount}
     else
       render status: 422, json: redeem_fail_response
     end
