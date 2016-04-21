@@ -24,6 +24,7 @@ module Spree
             recipient_email: gift_card_details[:recipient_email],
             purchaser_name: gift_card_details[:purchaser_name],
             gift_message: gift_card_details[:gift_message],
+            send_date: gift_card_details[:send_date]
         ) if line_item.gift_card?
       end
     end
