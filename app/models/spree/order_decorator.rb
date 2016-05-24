@@ -27,6 +27,7 @@ module SpreeStoreCredits::OrderDecorator
     end
 
     def send_gift_card_emails
+      puts caller[0..2]
       gift_cards.each do |gift_card|
         Spree::GiftCardMailer.gift_card_email(gift_card).deliver
       end
